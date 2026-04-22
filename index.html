@@ -1,0 +1,1468 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cheyanne Seah | Sustainability & Data Professional</title>
+  <meta name="description" content="Portfolio of Cheyanne Seah — sustainability reporting, carbon accounting, and data analytics professional."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet"/>
+
+  <style>
+  /* ============================================================
+     THEME TOKENS  —  victoreke.com-inspired zinc + green palette
+  ============================================================ */
+  :root {
+    --bg:          #18181B;
+    --bg-2:        #27272A;
+    --bg-3:        #3F3F46;
+    --text:        #FAFAFA;
+    --text-2:      #D4D4D8;
+    --muted:       #A1A1AA;
+    --border:      #3F3F46;
+    --accent:      #05C55A;
+    --accent-dim:  rgba(5,197,90,0.12);
+    --accent-glow: rgba(5,197,90,0.25);
+    --radius:      10px;
+    --shadow:      0 4px 20px rgba(0,0,0,0.4);
+    --shadow-md:   0 8px 32px rgba(0,0,0,0.5);
+  }
+  [data-theme="light"] {
+    --bg:          #FAFAFA;
+    --bg-2:        #FFFFFF;
+    --bg-3:        #F4F4F5;
+    --text:        #18181B;
+    --text-2:      #3F3F46;
+    --muted:       #71717A;
+    --border:      #E4E4E7;
+    --accent:      #16A34A;
+    --accent-dim:  rgba(22,163,74,0.10);
+    --accent-glow: rgba(22,163,74,0.20);
+    --shadow:      0 4px 20px rgba(0,0,0,0.07);
+    --shadow-md:   0 8px 32px rgba(0,0,0,0.11);
+  }
+
+  /* ============================================================
+     RESET & BASE
+  ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 16px;
+    transition: background 0.3s, color 0.3s;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { opacity: 0.85; }
+  img { max-width: 100%; display: block; }
+
+  .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 80px 0; }
+
+  .section-label {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 10px;
+  }
+  .section-label::before {
+    content: ''; display: inline-block;
+    width: 20px; height: 2px;
+    background: var(--accent); border-radius: 2px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight: 900;
+    color: var(--text); margin-bottom: 48px;
+    line-height: 1.2;
+  }
+  .section-title span { color: var(--accent); }
+
+  /* ============================================================
+     NAVIGATION
+  ============================================================ */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(24,24,27,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    transition: background 0.3s;
+  }
+  [data-theme="light"] nav { background: rgba(250,250,250,0.88); }
+
+  .nav-inner {
+    max-width: 1000px; margin: 0 auto;
+    padding: 0 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 62px;
+  }
+  /* ✏️ EDIT: Your initials */
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; font-weight: 900;
+    color: var(--text); letter-spacing: -0.02em;
+    flex-shrink: 0;
+  }
+  .nav-logo span { color: var(--accent); }
+
+  .nav-links {
+    display: flex; gap: 28px; list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.84rem; font-weight: 500;
+    color: var(--muted);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--accent); opacity: 1; }
+
+  .nav-right { display: flex; align-items: center; gap: 12px; }
+
+  .theme-toggle {
+    width: 36px; height: 36px; border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--bg-2);
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; transition: all 0.2s;
+    color: var(--muted);
+  }
+  .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
+  .nav-toggle-mobile {
+    display: none; flex-direction: column; gap: 5px;
+    cursor: pointer; padding: 4px; background: none; border: none;
+  }
+  .nav-toggle-mobile span {
+    display: block; width: 22px; height: 2px;
+    background: var(--text); border-radius: 2px; transition: 0.3s;
+  }
+
+  /* ============================================================
+     HERO
+  ============================================================ */
+  #hero {
+    padding: 130px 0 80px;
+    overflow: hidden;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .hero-pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--accent-dim);
+    border: 1px solid var(--accent-glow);
+    color: var(--accent);
+    font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 5px 14px; border-radius: 99px;
+    margin-bottom: 20px;
+  }
+  .hero-pill::before { content: '●'; font-size: 0.5rem; animation: blink 1.8s infinite; }
+  @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.2; } }
+
+  /* ✏️ EDIT: Your name */
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 5.5vw, 4rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    margin-bottom: 16px;
+  }
+  .hero-name span { color: var(--accent); }
+
+  /* ✏️ EDIT: Your tagline */
+  .hero-blurb {
+    font-size: 1rem;
+    color: var(--muted);
+    max-width: 480px;
+    margin-bottom: 32px;
+    line-height: 1.75;
+  }
+
+  .hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 36px; }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 22px; border-radius: var(--radius);
+    font-size: 0.88rem; font-weight: 700;
+    transition: all 0.2s; cursor: pointer;
+    border: none; text-decoration: none;
+  }
+  .btn svg { width: 16px; height: 16px; stroke: currentColor; fill: none; flex-shrink: 0; }
+  .btn-accent {
+    background: var(--accent); color: #fff;
+  }
+  .btn-accent:hover { opacity: 0.9; transform: translateY(-1px); color: #fff; box-shadow: 0 4px 16px var(--accent-glow); }
+  .btn-ghost {
+    background: var(--bg-2); color: var(--text-2);
+    border: 1px solid var(--border);
+  }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); opacity: 1; }
+
+  .hero-meta {
+    display: flex; gap: 20px; flex-wrap: wrap;
+  }
+  .hero-meta-item {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 0.8rem; color: var(--muted);
+  }
+  .hero-meta-item svg { width: 14px; height: 14px; stroke: var(--accent); fill: none; flex-shrink: 0; }
+
+  /* ============================================================
+     HERO ANIMATED GRAPHIC
+  ============================================================ */
+  .hero-visual {
+    position: relative;
+    width: 100%; max-width: 420px;
+    height: 420px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* Particle Web canvas */
+  #particle-canvas {
+    width: 100%; height: 100%;
+    border-radius: var(--radius);
+    display: block;
+  }
+
+  /* ============================================================
+     CONTRIBUTION GRAPH  (hidden by default)
+  ============================================================ */
+  .contrib-toggle-wrap {
+    text-align: center;
+    padding: 8px 0 32px;
+  }
+  .contrib-toggle-btn {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.8rem; font-weight: 600;
+    padding: 8px 18px; border-radius: var(--radius);
+    cursor: pointer; transition: all 0.2s;
+    font-family: inherit;
+  }
+  .contrib-toggle-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  #contrib-section {
+    display: none;
+    padding: 0 0 60px;
+  }
+  #contrib-section.visible { display: block; }
+
+  .contrib-inner {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+  }
+  .contrib-header {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 20px;
+  }
+  .contrib-title { font-size: 0.88rem; font-weight: 700; color: var(--text-2); }
+  .contrib-note  { font-size: 0.72rem; color: var(--muted); }
+  #contrib-grid {
+    display: grid;
+    grid-template-columns: repeat(26, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    gap: 3px;
+    width: 100%;
+  }
+  .contrib-cell {
+    aspect-ratio: 1;
+    border-radius: 2px;
+    min-width: 8px;
+  }
+  .contrib-cell.l0 { background: var(--bg-3); }
+  .contrib-cell.l1 { background: rgba(5,197,90,0.25); }
+  .contrib-cell.l2 { background: rgba(5,197,90,0.45); }
+  .contrib-cell.l3 { background: rgba(5,197,90,0.70); }
+  .contrib-cell.l4 { background: var(--accent); }
+  [data-theme="light"] .contrib-cell.l1 { background: rgba(22,163,74,0.25); }
+  [data-theme="light"] .contrib-cell.l2 { background: rgba(22,163,74,0.45); }
+  [data-theme="light"] .contrib-cell.l3 { background: rgba(22,163,74,0.70); }
+  [data-theme="light"] .contrib-cell.l4 { background: var(--accent); }
+
+  /* ============================================================
+     ABOUT / STATS  (bento-style)
+  ============================================================ */
+  #about { background: var(--bg); padding-top: 0; }
+
+  .stats-bento {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  .stat-card {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px 20px;
+    text-align: center;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .stat-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .stat-num {
+    font-size: 2.2rem; font-weight: 900;
+    color: var(--accent); line-height: 1;
+    letter-spacing: -0.04em; margin-bottom: 6px;
+  }
+  .stat-label { font-size: 0.76rem; color: var(--muted); line-height: 1.4; }
+
+  /* ============================================================
+     EXPERIENCE  (vertical scrollable timeline)
+  ============================================================ */
+  #experience { background: var(--bg-2); }
+  [data-theme="light"] #experience { background: var(--bg-3); }
+
+  .timeline { position: relative; padding-left: 28px; }
+  .timeline::before {
+    content: '';
+    position: absolute; left: 6px; top: 8px; bottom: 8px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent), var(--border));
+    border-radius: 2px;
+  }
+  .timeline-item { position: relative; margin-bottom: 36px; }
+  .timeline-item:last-child { margin-bottom: 0; }
+  .timeline-dot {
+    position: absolute; left: -28px; top: 7px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--bg); border: 3px solid var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-dim);
+  }
+  .tl-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px 24px;
+    box-shadow: var(--shadow);
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  [data-theme="light"] .tl-card { background: var(--bg-2); }
+  .tl-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .tl-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin-bottom: 4px; }
+  .tl-role { font-size: 0.97rem; font-weight: 700; color: var(--text); }
+  .tl-period {
+    font-size: 0.72rem; font-weight: 700; color: var(--accent);
+    background: var(--accent-dim); border: 1px solid var(--accent-glow);
+    padding: 3px 10px; border-radius: 99px; white-space: nowrap;
+  }
+  .tl-org { font-size: 0.84rem; color: var(--muted); font-weight: 500; margin-bottom: 12px; }
+  .tl-points { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+  .tl-points li {
+    font-size: 0.84rem; color: var(--text-2);
+    padding-left: 16px; position: relative; line-height: 1.55;
+  }
+  .tl-points li::before {
+    content: '▸'; position: absolute; left: 0;
+    color: var(--accent); font-size: 0.68rem; top: 4px;
+  }
+
+  /* ============================================================
+     PROJECTS  (horizontal scroll)
+  ============================================================ */
+  #projects { background: var(--bg); }
+
+  .projects-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 28px;
+  }
+  .projects-header .section-title { margin-bottom: 0; }
+  .view-all-link {
+    font-size: 0.84rem; font-weight: 700;
+    color: var(--accent); display: flex; align-items: center; gap: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .view-all-link:hover { opacity: 0.8; }
+
+  .projects-scroll-wrap {
+    position: relative;
+    margin: 0 -24px;
+    padding: 0 24px;
+  }
+  .projects-scroll {
+    display: flex;
+    gap: 18px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 16px;
+    padding-right: 24px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+  .projects-scroll::-webkit-scrollbar { height: 4px; }
+  .projects-scroll::-webkit-scrollbar-track { background: transparent; }
+  .projects-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+
+  .proj-card {
+    flex: 0 0 300px;
+    scroll-snap-align: start;
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex; flex-direction: column;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    color: inherit;
+  }
+  .proj-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    color: inherit; opacity: 1;
+  }
+
+  .proj-thumb {
+    width: 100%; height: 160px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  /* ✏️ EDIT: Replace with <img src="project-photo.jpg"> if you have photos */
+  .proj-thumb-1 { background: linear-gradient(135deg, #0d3320 0%, #1a5c36 100%); }
+  .proj-thumb-2 { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); }
+  .proj-thumb-3 { background: linear-gradient(135deg, #1a0a2e 0%, #2d1b4e 100%); }
+  .proj-thumb-4 { background: linear-gradient(135deg, #0a1628 0%, #1e3a5f 100%); }
+  .proj-thumb-5 { background: linear-gradient(135deg, #0d2818 0%, #1e5c35 100%); }
+  .proj-thumb-6 { background: linear-gradient(135deg, #1a1205 0%, #3d2c0a 100%); }
+
+  .proj-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+  .proj-meta {
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 10px; flex-wrap: wrap;
+  }
+  .proj-role-tag {
+    font-size: 0.66rem; font-weight: 700;
+    background: var(--accent-dim); color: var(--accent);
+    border: 1px solid var(--accent-glow);
+    padding: 2px 8px; border-radius: 99px;
+  }
+  .proj-year {
+    font-size: 0.66rem; font-weight: 600; color: var(--muted);
+    margin-left: auto;
+  }
+  .proj-title { font-size: 0.94rem; font-weight: 700; color: var(--text); margin-bottom: 8px; line-height: 1.35; }
+  .proj-blurb { font-size: 0.8rem; color: var(--muted); line-height: 1.6; flex: 1; }
+  .proj-arrow {
+    display: flex; align-items: center; gap: 4px;
+    font-size: 0.76rem; font-weight: 700; color: var(--accent);
+    margin-top: 14px;
+  }
+
+  /* Scroll hint fade */
+  .projects-scroll-wrap::after {
+    content: '';
+    position: absolute; top: 0; right: 0; bottom: 16px;
+    width: 60px;
+    background: linear-gradient(to right, transparent, var(--bg));
+    pointer-events: none;
+  }
+
+  /* ============================================================
+     SKILLS  (bento grid — dark bento style)
+  ============================================================ */
+  #skills { background: var(--bg-2); }
+  [data-theme="light"] #skills { background: var(--bg-3); }
+
+  .skills-bento {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+  .skill-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 22px;
+    box-shadow: var(--shadow);
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  [data-theme="light"] .skill-card { background: var(--bg-2); }
+  .skill-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .skill-card-title {
+    font-size: 0.7rem; font-weight: 800;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .skill-chips { display: flex; flex-wrap: wrap; gap: 7px; }
+  .skill-chip {
+    font-size: 0.76rem; font-weight: 500;
+    background: var(--bg-2); color: var(--text-2);
+    border: 1px solid var(--border);
+    padding: 4px 12px; border-radius: 6px;
+    transition: all 0.15s;
+  }
+  [data-theme="light"] .skill-chip { background: var(--bg-3); }
+  .skill-chip:hover {
+    border-color: var(--accent); color: var(--accent); background: var(--accent-dim);
+  }
+
+  /* ============================================================
+     ACHIEVEMENTS  (glassmorphism-ish cards)
+  ============================================================ */
+  #achievements { background: var(--bg); }
+
+  .achieve-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 14px;
+  }
+  .achieve-card {
+    display: flex; gap: 14px;
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+  .achieve-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 0 0 1px var(--accent-glow), var(--shadow);
+  }
+  .achieve-icon { font-size: 1.4rem; flex-shrink: 0; line-height: 1; margin-top: 2px; }
+  .achieve-year {
+    font-size: 0.66rem; font-weight: 800;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 3px;
+  }
+  .achieve-name {
+    font-size: 0.86rem; font-weight: 700; color: var(--text); margin-bottom: 2px; line-height: 1.3;
+  }
+  .achieve-org { font-size: 0.76rem; color: var(--muted); }
+
+  /* ============================================================
+     CONTACT
+  ============================================================ */
+  #contact { background: var(--bg-2); }
+  [data-theme="light"] #contact { background: var(--bg-3); }
+
+  .contact-inner {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 48px;
+  }
+  [data-theme="light"] .contact-inner { background: var(--bg-2); }
+  .contact-inner .section-label { display: inline-flex; }
+  .contact-inner .section-title { margin-bottom: 12px; }
+  .contact-sub {
+    font-size: 0.95rem; color: var(--muted);
+    margin-bottom: 32px; max-width: 500px;
+  }
+  .contact-links { display: flex; gap: 12px; flex-wrap: wrap; }
+  .contact-link {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 11px 20px; border-radius: var(--radius);
+    font-size: 0.88rem; font-weight: 700;
+    background: var(--bg-2); color: var(--text);
+    border: 1px solid var(--border);
+    transition: all 0.2s; text-decoration: none;
+  }
+  [data-theme="light"] .contact-link { background: var(--bg-3); }
+  .contact-link svg { width: 17px; height: 17px; stroke: currentColor; fill: none; flex-shrink: 0; }
+  .contact-link:hover {
+    border-color: var(--accent); color: var(--accent); opacity: 1;
+    transform: translateY(-1px);
+  }
+
+  /* ============================================================
+     FOOTER
+  ============================================================ */
+  footer {
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+    text-align: center; padding: 24px;
+    font-size: 0.76rem; color: var(--muted);
+  }
+  footer a { color: var(--accent); font-weight: 600; }
+
+  /* ============================================================
+     SCROLL REVEAL
+  ============================================================ */
+  .reveal, .reveal-l, .reveal-r, .reveal-s {
+    transition: opacity 0.65s cubic-bezier(0.22,1,0.36,1),
+                transform 0.65s cubic-bezier(0.22,1,0.36,1);
+    transition-delay: var(--d, 0ms);
+  }
+  .reveal   { opacity:0; transform: translateY(32px); }
+  .reveal-l { opacity:0; transform: translateX(-36px); }
+  .reveal-r { opacity:0; transform: translateX(36px); }
+  .reveal-s { opacity:0; transform: scale(0.94); }
+  .reveal.in, .reveal-l.in, .reveal-r.in, .reveal-s.in {
+    opacity:1; transform: none;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal,.reveal-l,.reveal-r,.reveal-s { opacity:1; transform:none; transition:none; }
+  }
+
+  /* ============================================================
+     RESPONSIVE
+  ============================================================ */
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-visual { display: none; } /* hide graphic on tablet/mobile — re-enable if desired */
+    .stats-bento { grid-template-columns: repeat(2, 1fr); }
+    .skills-bento { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    section { padding: 60px 0; }
+    #hero { padding: 110px 0 60px; }
+    .nav-links { display: none; }
+    .nav-links.open {
+      display: flex; flex-direction: column;
+      position: fixed; top: 62px; left: 0; right: 0;
+      background: var(--bg); border-bottom: 1px solid var(--border);
+      padding: 20px 24px; gap: 20px; z-index: 99;
+    }
+    .nav-toggle-mobile { display: flex; }
+    .section-title { font-size: 1.7rem; }
+    .hero-name { font-size: 2.6rem; }
+    .contact-inner { padding: 28px 20px; }
+    .projects-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+  }
+
+  @media (max-width: 540px) {
+    .stats-bento { grid-template-columns: 1fr 1fr; }
+    .skills-bento { grid-template-columns: 1fr; }
+    .proj-card { flex: 0 0 280px; }
+    .hero-buttons { flex-direction: column; }
+    .hero-buttons .btn { width: 100%; justify-content: center; }
+    #contrib-grid { grid-template-columns: repeat(13, 1fr); }
+  }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+============================================================ -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <!-- ✏️ EDIT: Your initials -->
+    <div class="nav-logo">CS<span>.</span></div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeBtn" title="Toggle theme" aria-label="Toggle light/dark mode">🌙</button>
+      <button class="nav-toggle-mobile" id="mobileMenu" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-grid">
+
+      <!-- Left: text -->
+      <div>
+        <div class="hero-pill reveal" style="--d:100ms">Open to Opportunities · Singapore</div>
+
+        <!-- ✏️ EDIT: Your name -->
+        <h1 class="hero-name reveal" style="--d:200ms">
+          Cheyanne<br><span>Seah</span>
+        </h1>
+
+        <!-- ✏️ EDIT: Your tagline -->
+        <p class="hero-blurb reveal" style="--d:310ms">
+          Sustainability &amp; Data Analyst · Carbon Accounting · ESG Strategy · Research.
+          Bridging science, data, and meaningful impact across global operations.
+        </p>
+
+        <div class="hero-buttons reveal" style="--d:400ms">
+          <!-- ✏️ EDIT: Update LinkedIn URL -->
+          <a href="https://www.linkedin.com/in/cheyanne-seah" target="_blank" class="btn btn-accent">
+            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+            </svg>
+            LinkedIn
+          </a>
+          <!-- ✏️ EDIT: Update GitHub URL -->
+          <a href="https://github.com/csunbird" target="_blank" class="btn btn-ghost">
+            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+            </svg>
+            GitHub
+          </a>
+          <a href="CV-Cheyanne-Seah-2026.pdf" download class="btn btn-ghost">
+            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Download CV
+          </a>
+        </div>
+
+        <div class="hero-meta reveal" style="--d:500ms">
+          <div class="hero-meta-item">
+            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+            Singapore
+          </div>
+          <div class="hero-meta-item">
+            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+            </svg>
+            BSc Natural Sciences, Imperial College London
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: animated graphic — Particle Web -->
+      <div class="hero-visual reveal-s" style="--d:250ms">
+        <canvas id="particle-canvas"></canvas>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ABOUT / STATS
+============================================================ -->
+<section id="about">
+  <div class="container">
+    <p class="section-label reveal">About</p>
+    <h2 class="section-title reveal" style="--d:80ms">Impact in <span>Numbers</span></h2>
+
+    <div class="stats-bento">
+      <!-- ✏️ EDIT: Update your impact numbers -->
+      <div class="stat-card reveal" style="--d:0ms">
+        <div class="stat-num">128</div>
+        <div class="stat-label">Plants in annual emissions stocktake</div>
+      </div>
+      <div class="stat-card reveal" style="--d:80ms">
+        <div class="stat-num">28</div>
+        <div class="stat-label">Global regions in sustainability reporting</div>
+      </div>
+      <div class="stat-card reveal" style="--d:160ms">
+        <div class="stat-num">60%</div>
+        <div class="stat-label">Compute time reduction in HPC pipeline</div>
+      </div>
+      <div class="stat-card reveal" style="--d:240ms">
+        <div class="stat-num">10%</div>
+        <div class="stat-label">Forecasted margin increase from CRM insights</div>
+      </div>
+    </div>
+
+    <!-- Contribution graph toggle -->
+    <div class="contrib-toggle-wrap" style="margin-top:32px;">
+      <button class="contrib-toggle-btn" id="contribToggle" onclick="toggleContrib()">
+        ▸ Show Activity Graph
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Contribution Graph (hidden by default) -->
+<div id="contrib-section">
+  <div class="container">
+    <div class="contrib-inner">
+      <div class="contrib-header">
+        <div class="contrib-title">
+          GitHub Activity &nbsp;
+          <a href="https://github.com/csunbird" target="_blank" style="font-size:0.76rem;font-weight:600;color:var(--accent);">@csunbird ↗</a>
+        </div>
+        <!-- ✏️ EDIT: This updates automatically from GitHub API -->
+        <div class="contrib-note" id="contrib-status">Last year · Toggle to hide</div>
+      </div>
+      <div id="contrib-grid"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     EXPERIENCE
+============================================================ -->
+<section id="experience">
+  <div class="container">
+    <p class="section-label reveal">Career</p>
+    <h2 class="section-title reveal" style="--d:80ms">Professional <span>Experience</span></h2>
+
+    <div class="timeline">
+      <!-- ✏️ EDIT: Add/remove experience items -->
+
+      <div class="timeline-item reveal" style="--d:0ms">
+        <div class="timeline-dot"></div>
+        <div class="tl-card">
+          <div class="tl-header">
+            <div class="tl-role">Sustainability Analyst</div>
+            <div class="tl-period">2024</div>
+          </div>
+          <div class="tl-org">NIPSEA Group (Nippon Paint Holdings) · Singapore</div>
+          <ul class="tl-points">
+            <li>Collated global sustainability reporting for GRI and SASB standards, with forward alignment to ISSB frameworks.</li>
+            <li>Managed an offsite software development team to enhance data collection systems for safety and sustainability metrics.</li>
+            <li>Addressed discrepancies in Scope 1, 2 &amp; 3 emissions and safety data from 128 plants across 28 regions.</li>
+            <li>Aligned water and waste reporting definitions across partner companies per GRI standards.</li>
+            <li>Delivered cross-functional operational efficiency projects under the Business Transformation Office.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal" style="--d:80ms">
+        <div class="timeline-dot"></div>
+        <div class="tl-card">
+          <div class="tl-header">
+            <div class="tl-role">Business Analyst (Data &amp; Strategy)</div>
+            <div class="tl-period">2023 – 2024</div>
+          </div>
+          <!-- ✏️ EDIT: Replace with actual company name -->
+          <div class="tl-org">Energy &amp; CRM Role</div>
+          <ul class="tl-points">
+            <li>Analysed energy attribute sales and CRM data, deriving 7 strategic insights with a forecasted 10% margin increase.</li>
+            <li>Managed a company-wide overhaul of communication platforms.</li>
+            <li>Streamlined the CRM sales pipeline (Microsoft Dynamics), increasing operational efficiency by 15%.</li>
+            <li>Proposed 5 strategic changes for a downstream CRM improvements project.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal" style="--d:160ms">
+        <div class="timeline-dot"></div>
+        <div class="tl-card">
+          <div class="tl-header">
+            <div class="tl-role">Undergraduate Researcher (UROP)</div>
+            <div class="tl-period">2022 – 2023</div>
+          </div>
+          <div class="tl-org">Imperial College London, Department of Life Sciences</div>
+          <ul class="tl-points">
+            <li>Developed an independent research project on the impact of warming &amp; chemical stress on ecosystems — awarded 6 weeks of departmental funding.</li>
+            <li>Discovered a novel endogenous retrovirus through bioinformatics analysis.</li>
+            <li>Developed teaching materials for the Ecology Field Skills undergraduate module.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal" style="--d:240ms">
+        <div class="timeline-dot"></div>
+        <div class="tl-card">
+          <div class="tl-header">
+            <div class="tl-role">Ecology Field Assistant</div>
+            <div class="tl-period">2021 – 2022</div>
+          </div>
+          <!-- ✏️ EDIT: Replace with actual company name -->
+          <div class="tl-org">Environmental Consultancy · Singapore</div>
+          <ul class="tl-points">
+            <li>Used QGIS and LIDAR for Environmental Impact Assessments (EIA).</li>
+            <li>Programmed R scripts for data cleaning and analysis in EIA projects.</li>
+            <li>Coordinated the NParks Youth Stewards for Nature (YSN) programme.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PROJECTS  (horizontal scroll + link to projects.html)
+============================================================ -->
+<section id="projects">
+  <div class="container">
+    <div class="projects-header">
+      <div>
+        <p class="section-label reveal">Work</p>
+        <h2 class="section-title reveal" style="--d:80ms">Selected <span>Projects</span></h2>
+      </div>
+      <a href="projects.html" class="view-all-link reveal" style="--d:120ms">
+        View all projects →
+      </a>
+    </div>
+
+    <div class="projects-scroll-wrap">
+      <div class="projects-scroll">
+
+        <!-- ✏️ EDIT: Add/remove project cards. Replace proj-thumb-N class for gradient or add <img> -->
+
+        <a href="projects.html#emissions" class="proj-card reveal" style="--d:0ms">
+          <div class="proj-thumb proj-thumb-1">🌍</div>
+          <div class="proj-body">
+            <div class="proj-meta">
+              <span class="proj-role-tag">Sustainability Analyst</span>
+              <span class="proj-year">2024</span>
+            </div>
+            <div class="proj-title">Global Emissions Stocktake</div>
+            <div class="proj-blurb">Accounted for Scope 1, 2 &amp; 3 emissions across 128 plants in 28 regions. Resolved data discrepancies and aligned reporting to GRI, SASB, and ISSB standards.</div>
+            <div class="proj-arrow">View project →</div>
+          </div>
+        </a>
+
+        <a href="projects.html#crm" class="proj-card reveal" style="--d:60ms">
+          <div class="proj-thumb proj-thumb-2">📊</div>
+          <div class="proj-body">
+            <div class="proj-meta">
+              <span class="proj-role-tag">Business Analyst</span>
+              <span class="proj-year">2023–24</span>
+            </div>
+            <div class="proj-title">CRM Sales Analytics &amp; Strategy</div>
+            <div class="proj-blurb">Analysed Microsoft Dynamics CRM pipeline for churn and win/loss drivers. Derived 7 strategic insights, forecasting a 10% margin improvement.</div>
+            <div class="proj-arrow">View project →</div>
+          </div>
+        </a>
+
+        <a href="projects.html#genomics" class="proj-card reveal" style="--d:120ms">
+          <div class="proj-thumb proj-thumb-3">🧬</div>
+          <div class="proj-body">
+            <div class="proj-meta">
+              <span class="proj-role-tag">Lead Researcher</span>
+              <span class="proj-year">2022–23</span>
+            </div>
+            <div class="proj-title">Population Genetics Pipeline</div>
+            <div class="proj-blurb">Built a Linux HPC pipeline in Python and R to simulate populations and estimate effective sizes in <em>Anopheles gambiae</em>. Reduced compute time by 60%.</div>
+            <div class="proj-arrow">View project →</div>
+          </div>
+        </a>
+
+        <a href="projects.html#c40" class="proj-card reveal" style="--d:180ms">
+          <div class="proj-thumb proj-thumb-4">🏙️</div>
+          <div class="proj-body">
+            <div class="proj-meta">
+              <span class="proj-role-tag">Sustainability &amp; NbS Lead</span>
+              <span class="proj-year">2023</span>
+            </div>
+            <div class="proj-title">C40 Urban Redesign — Mouraria, Lisbon</div>
+            <div class="proj-blurb">Led Nature-based Solutions strategy for a team placing 2nd in the C40 Students Redesigning Cities competition. Reimagined Mouraria under sustainable, human-centric principles.</div>
+            <div class="proj-arrow">View project →</div>
+          </div>
+        </a>
+
+        <a href="projects.html#bcg" class="proj-card reveal" style="--d:240ms">
+          <div class="proj-thumb proj-thumb-5">🌱</div>
+          <div class="proj-body">
+            <div class="proj-meta">
+              <span class="proj-role-tag">Carbon Analyst</span>
+              <span class="proj-year">2024</span>
+            </div>
+            <div class="proj-title">BCG Climate &amp; Sustainability Simulation</div>
+            <div class="proj-blurb">Carbon emissions baseline analysis for a hypothetical automotive company using CDP data. Recommended 6 Net Zero initiatives aligned to GRI and TCFD standards.</div>
+            <div class="proj-arrow">View project →</div>
+          </div>
+        </a>
+
+        <a href="projects.html#ow" class="proj-card reveal" style="--d:300ms">
+          <div class="proj-thumb proj-thumb-6">🏦</div>
+          <div class="proj-body">
+            <div class="proj-meta">
+              <span class="proj-role-tag">Climate Finance Analyst</span>
+              <span class="proj-year">2024</span>
+            </div>
+            <div class="proj-title">OliverWyman Financial Climate Simulation</div>
+            <div class="proj-blurb">Classified financed emissions using Absolute Financed Emissions, PEI, and FELI. Recommended a net-zero scenario for Bank ABC's 2030 target-setting.</div>
+            <div class="proj-arrow">View project →</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SKILLS
+============================================================ -->
+<section id="skills">
+  <div class="container">
+    <p class="section-label reveal">Capabilities</p>
+    <h2 class="section-title reveal" style="--d:80ms">Skills &amp; <span>Tools</span></h2>
+
+    <div class="skills-bento">
+      <!-- ✏️ EDIT: Update skill chips -->
+      <div class="skill-card reveal" style="--d:0ms">
+        <div class="skill-card-title">Sustainability</div>
+        <div class="skill-chips">
+          <span class="skill-chip">Carbon Accounting</span>
+          <span class="skill-chip">GRI Reporting</span>
+          <span class="skill-chip">SASB</span>
+          <span class="skill-chip">ISSB</span>
+          <span class="skill-chip">TCFD</span>
+          <span class="skill-chip">Scope 1/2/3</span>
+          <span class="skill-chip">Net Zero Strategy</span>
+        </div>
+      </div>
+
+      <div class="skill-card reveal" style="--d:80ms">
+        <div class="skill-card-title">Data &amp; Analytics</div>
+        <div class="skill-chips">
+          <span class="skill-chip">R / R Markdown</span>
+          <span class="skill-chip">Python</span>
+          <span class="skill-chip">SQL</span>
+          <span class="skill-chip">PowerBI</span>
+          <span class="skill-chip">Excel</span>
+          <span class="skill-chip">Bioinformatics</span>
+          <span class="skill-chip">Data QA</span>
+        </div>
+      </div>
+
+      <div class="skill-card reveal" style="--d:160ms">
+        <div class="skill-card-title">Technical</div>
+        <div class="skill-chips">
+          <span class="skill-chip">Linux / Bash</span>
+          <span class="skill-chip">HPC Clusters</span>
+          <span class="skill-chip">QGIS / LIDAR</span>
+          <span class="skill-chip">CRM (Dynamics)</span>
+          <span class="skill-chip">Git / GitHub</span>
+        </div>
+      </div>
+
+      <div class="skill-card reveal" style="--d:240ms">
+        <div class="skill-card-title">Business &amp; Strategy</div>
+        <div class="skill-chips">
+          <span class="skill-chip">Project Management</span>
+          <span class="skill-chip">Stakeholder Mgmt</span>
+          <span class="skill-chip">Process Improvement</span>
+          <span class="skill-chip">Financial Modelling</span>
+          <span class="skill-chip">Investor Relations</span>
+        </div>
+      </div>
+
+      <div class="skill-card reveal" style="--d:320ms">
+        <div class="skill-card-title">Communication</div>
+        <div class="skill-chips">
+          <span class="skill-chip">Report Writing</span>
+          <span class="skill-chip">Data Visualisation</span>
+          <span class="skill-chip">Presentations</span>
+          <span class="skill-chip">English</span>
+          <span class="skill-chip">Mandarin</span>
+        </div>
+      </div>
+
+      <div class="skill-card reveal" style="--d:400ms">
+        <div class="skill-card-title">Certifications</div>
+        <div class="skill-chips">
+          <span class="skill-chip">Google PM (Coursera)</span>
+          <span class="skill-chip">GDSC ML</span>
+          <span class="skill-chip">GDSC Software Dev</span>
+          <span class="skill-chip">PowerBI Analyst</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ACHIEVEMENTS
+============================================================ -->
+<section id="achievements">
+  <div class="container">
+    <p class="section-label reveal">Recognition</p>
+    <h2 class="section-title reveal" style="--d:80ms">Achievements &amp; <span>Awards</span></h2>
+
+    <div class="achieve-grid">
+      <!-- ✏️ EDIT: Add/remove achievement cards -->
+      <div class="achieve-card reveal" style="--d:0ms">
+        <div class="achieve-icon">🎓</div>
+        <div>
+          <div class="achieve-year">2024</div>
+          <div class="achieve-name">BSc 2nd Upper Class Honours + ARCS</div>
+          <div class="achieve-org">Imperial College London</div>
+        </div>
+      </div>
+      <div class="achieve-card reveal" style="--d:50ms">
+        <div class="achieve-icon">🏆</div>
+        <div>
+          <div class="achieve-year">2024</div>
+          <div class="achieve-name">1st Place — Imperial×NTU Health &amp; Sustainability Designathon</div>
+          <div class="achieve-org">WonkyBites concept</div>
+        </div>
+      </div>
+      <div class="achieve-card reveal" style="--d:100ms">
+        <div class="achieve-icon">🌆</div>
+        <div>
+          <div class="achieve-year">2023</div>
+          <div class="achieve-name">2nd Place — C40 Students Redesigning Cities</div>
+          <div class="achieve-org">C40 Cities · Mouraria, Lisbon</div>
+        </div>
+      </div>
+      <div class="achieve-card reveal" style="--d:150ms">
+        <div class="achieve-icon">🔬</div>
+        <div>
+          <div class="achieve-year">2022–23</div>
+          <div class="achieve-name">UROP Departmental Funding Award</div>
+          <div class="achieve-org">Imperial College London, Life Sciences</div>
+        </div>
+      </div>
+      <div class="achieve-card reveal" style="--d:200ms">
+        <div class="achieve-icon">🧫</div>
+        <div>
+          <div class="achieve-year">2022</div>
+          <div class="achieve-name">Novel Endogenous Retrovirus Discovery</div>
+          <div class="achieve-org">Bioinformatics, Imperial College London</div>
+        </div>
+      </div>
+      <div class="achieve-card reveal" style="--d:250ms">
+        <div class="achieve-icon">🏅</div>
+        <div>
+          <div class="achieve-year">2019</div>
+          <div class="achieve-name">Singapore Biology Olympiad Merit Award</div>
+          <div class="achieve-org">Singapore Institute of Biology / NTU / NUS</div>
+        </div>
+      </div>
+      <div class="achieve-card reveal" style="--d:300ms">
+        <div class="achieve-icon">⭐</div>
+        <div>
+          <div class="achieve-year">2018</div>
+          <div class="achieve-name">EAGLES Award — Leadership &amp; Excellence</div>
+          <div class="achieve-org">MOE Singapore</div>
+        </div>
+      </div>
+      <div class="achieve-card reveal" style="--d:350ms">
+        <div class="achieve-icon">🏫</div>
+        <div>
+          <div class="achieve-year">2018</div>
+          <div class="achieve-name">ESIS Edusave Scholarship for Independent Schools</div>
+          <div class="achieve-org">Ministry of Education Singapore</div>
+        </div>
+      </div>
+      <div class="achieve-card reveal" style="--d:400ms">
+        <div class="achieve-icon">🔭</div>
+        <div>
+          <div class="achieve-year">2016–18</div>
+          <div class="achieve-name">Rio Tinto Big Science Competition — Distinction &amp; High Distinction</div>
+          <div class="achieve-org">Australian Science Innovations</div>
+        </div>
+      </div>
+      <div class="achieve-card reveal" style="--d:450ms">
+        <div class="achieve-icon">🤖</div>
+        <div>
+          <div class="achieve-year">2016</div>
+          <div class="achieve-name">2nd Prize — Toy Design Competition (Automata)</div>
+          <div class="achieve-org">Singapore Polytechnic</div>
+        </div>
+      </div>
+      <div class="achieve-card reveal" style="--d:500ms">
+        <div class="achieve-icon">🎓</div>
+        <div>
+          <div class="achieve-year">2020</div>
+          <div class="achieve-name">Raffles Diploma with Distinction — Cognitive Domain</div>
+          <div class="achieve-org">Raffles Institution</div>
+        </div>
+      </div>
+      <div class="achieve-card reveal" style="--d:550ms">
+        <div class="achieve-icon">🧪</div>
+        <div>
+          <div class="achieve-year">2019–20</div>
+          <div class="achieve-name">Science Research Programme — A*STAR GIS Mentorship</div>
+          <div class="achieve-org">MOE / NUS</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT
+============================================================ -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-inner">
+      <p class="section-label reveal">Get in Touch</p>
+      <h2 class="section-title reveal" style="--d:80ms">Let's <span>Connect</span></h2>
+      <p class="contact-sub reveal" style="--d:160ms">
+        Open to roles in sustainability reporting, ESG strategy, carbon accounting, and data analytics.
+        I'd love to hear about opportunities or collaborations.
+      </p>
+      <div class="contact-links reveal" style="--d:240ms">
+        <!-- ✏️ EDIT: Update your email -->
+        <a href="mailto:seahcheyanne@gmail.com" class="contact-link">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          seahcheyanne@gmail.com
+        </a>
+        <!-- ✏️ EDIT: Update LinkedIn URL -->
+        <a href="https://www.linkedin.com/in/cheyanne-seah" target="_blank" class="contact-link">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+          </svg>
+          LinkedIn
+        </a>
+        <!-- ✏️ EDIT: Update GitHub URL -->
+        <a href="https://github.com/csunbird" target="_blank" class="contact-link">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+          </svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <!-- ✏️ EDIT: Update year -->
+  &copy; 2025 Cheyanne Seah &nbsp;·&nbsp; Hosted on <a href="https://pages.github.com" target="_blank">GitHub Pages</a>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+============================================================ -->
+<script>
+  /* ── Dark / Light mode ── */
+  const themeBtn = document.getElementById('themeBtn');
+  const html     = document.documentElement;
+
+  function applyTheme(t) {
+    html.setAttribute('data-theme', t);
+    themeBtn.textContent = t === 'dark' ? '🌙' : '☀️';
+    localStorage.setItem('theme', t);
+  }
+
+  // Load saved preference or system preference
+  const saved = localStorage.getItem('theme');
+  const sys   = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  applyTheme(saved || sys);
+
+  themeBtn.addEventListener('click', () => {
+    applyTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  });
+
+  /* ── Particle Web ── */
+  (function () {
+    const canvas = document.getElementById('particle-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+
+    const COUNT   = 52;
+    const CONNECT = 85;   // max distance to draw a line
+    const SPEED   = 0.45;
+    let W, H, particles = [], accentHex, rafId;
+
+    function resize() {
+      const rect = canvas.parentElement.getBoundingClientRect();
+      W = canvas.width  = rect.width  || 420;
+      H = canvas.height = rect.height || 420;
+    }
+
+    function getAccent() {
+      return getComputedStyle(document.documentElement)
+        .getPropertyValue('--accent').trim() || '#05C55A';
+    }
+
+    function hexToRgb(hex) {
+      const r = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex.replace('#','').padStart(6,'0'));
+      return r ? { r: parseInt(r[1],16), g: parseInt(r[2],16), b: parseInt(r[3],16) } : { r:5, g:197, b:90 };
+    }
+
+    function Particle() {
+      this.x  = Math.random() * W;
+      this.y  = Math.random() * H;
+      this.vx = (Math.random() - 0.5) * SPEED;
+      this.vy = (Math.random() - 0.5) * SPEED;
+      this.r  = Math.random() * 2 + 1.5;
+    }
+
+    function init() {
+      resize();
+      particles = Array.from({ length: COUNT }, () => new Particle());
+    }
+
+    function draw() {
+      accentHex = getAccent();
+      const { r, g, b } = hexToRgb(accentHex);
+      const bg  = getComputedStyle(document.documentElement).getPropertyValue('--bg').trim() || '#18181B';
+
+      ctx.clearRect(0, 0, W, H);
+      ctx.fillStyle = bg;
+      ctx.fillRect(0, 0, W, H);
+
+      // Move
+      for (const p of particles) {
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0 || p.x > W) p.vx *= -1;
+        if (p.y < 0 || p.y > H) p.vy *= -1;
+      }
+
+      // Lines
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx   = particles[i].x - particles[j].x;
+          const dy   = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < CONNECT) {
+            const alpha = (1 - dist / CONNECT) * 0.55;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(${r},${g},${b},${alpha})`;
+            ctx.lineWidth   = 0.9;
+            ctx.stroke();
+          }
+        }
+      }
+
+      // Dots
+      for (const p of particles) {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${r},${g},${b},0.85)`;
+        ctx.shadowColor = accentHex;
+        ctx.shadowBlur  = 6;
+        ctx.fill();
+        ctx.shadowBlur  = 0;
+      }
+
+      rafId = requestAnimationFrame(draw);
+    }
+
+    init();
+    draw();
+
+    // Re-init on resize so the canvas fills its parent correctly
+    const ro = new ResizeObserver(() => {
+      cancelAnimationFrame(rafId);
+      init();
+      draw();
+    });
+    ro.observe(canvas.parentElement);
+  })();
+
+  /* ── Mobile nav ── */
+  document.getElementById('mobileMenu').addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+  document.querySelectorAll('#navLinks a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+  });
+
+  /* ── Active nav link on scroll ── */
+  const sections = document.querySelectorAll('section[id]');
+  const navAs    = document.querySelectorAll('.nav-links a');
+  new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navAs.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+      }
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' }).observe !== undefined &&
+  sections.forEach(s => new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting)
+        navAs.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#'+e.target.id));
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' }).observe(s));
+
+  /* ── Scroll reveal ── */
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const revealObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealObs.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal,.reveal-l,.reveal-r,.reveal-s').forEach(el => revealObs.observe(el));
+
+    // Hero triggers immediately
+    document.querySelectorAll('#hero .reveal, #hero .reveal-s').forEach(el => {
+      requestAnimationFrame(() => setTimeout(() => el.classList.add('in'), 50));
+    });
+  }
+
+  /* ── Contribution graph — real GitHub data ──
+     Uses github-contributions-api.jogruber.de (free, CORS-enabled, no auth needed).
+     Falls back to a placeholder pattern if the fetch fails (e.g. offline, API down).
+     ✏️ EDIT: Change GITHUB_USER if your username ever changes.
+  ── */
+  const GITHUB_USER = 'csunbird';
+  let contribLoaded = false;
+
+  async function loadContrib() {
+    if (contribLoaded) return;
+    const grid    = document.getElementById('contrib-grid');
+    const status  = document.getElementById('contrib-status');
+
+    grid.innerHTML = '';
+    if (status) status.textContent = 'Loading…';
+
+    try {
+      const res  = await fetch(`https://github-contributions-api.jogruber.de/v4/${GITHUB_USER}?y=last`);
+      if (!res.ok) throw new Error('API error');
+      const data = await res.json();
+
+      // The API returns { contributions: [{date, count, level (0–4)}, …] }
+      // We show the most recent 26 weeks (182 days), padded to start on Sunday.
+      const all   = data.contributions; // oldest → newest
+      const cells = all.slice(-182);    // last 26 weeks
+
+      // Pad the front so the grid starts on a Sunday
+      const firstDay = new Date(cells[0].date).getDay(); // 0=Sun
+      for (let p = 0; p < firstDay; p++) {
+        const pad = document.createElement('div');
+        pad.className = 'contrib-cell l0';
+        grid.appendChild(pad);
+      }
+
+      cells.forEach(c => {
+        const cell = document.createElement('div');
+        cell.className = `contrib-cell l${c.level}`;
+        cell.title     = `${c.date}: ${c.count} contribution${c.count !== 1 ? 's' : ''}`;
+        grid.appendChild(cell);
+      });
+
+      // Update total in header
+      const yearTotal = all.reduce((sum, c) => sum + c.count, 0);
+      if (status) status.textContent = `${yearTotal} contributions in the last year`;
+
+      contribLoaded = true;
+
+    } catch (e) {
+      // Fallback: decorative placeholder so the section still looks good
+      if (status) status.textContent = 'Could not load live data — showing placeholder';
+      const weights = [0, 0.55, 0.80, 0.85, 0.80, 0.55, 0];
+      for (let w = 0; w < 26; w++) {
+        for (let d = 0; d < 7; d++) {
+          const cell  = document.createElement('div');
+          const val   = Math.random() * weights[d];
+          const level = val < 0.08 ? 'l0' : val < 0.28 ? 'l1' : val < 0.50 ? 'l2' : val < 0.72 ? 'l3' : 'l4';
+          cell.className = `contrib-cell ${level}`;
+          grid.appendChild(cell);
+        }
+      }
+      contribLoaded = true;
+    }
+  }
+
+  function toggleContrib() {
+    const sec  = document.getElementById('contrib-section');
+    const btn  = document.getElementById('contribToggle');
+    const open = sec.classList.toggle('visible');
+    btn.textContent = open ? '▾ Hide Activity Graph' : '▸ Show Activity Graph';
+    if (open) loadContrib();
+  }
+</script>
+
+</body>
+</html>
